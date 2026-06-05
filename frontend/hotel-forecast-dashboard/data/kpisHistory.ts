@@ -1,0 +1,17 @@
+export const kpisHistory = [
+  { date: "20 May", occupancy: 71, adr: 135, revpar: 96,  alos: 2.1 },
+  { date: "21 May", occupancy: 73, adr: 137, revpar: 100, alos: 2.2 },
+  { date: "22 May", occupancy: 70, adr: 134, revpar: 94,  alos: 2.0 },
+  { date: "23 May", occupancy: 74, adr: 138, revpar: 102, alos: 2.3 },
+  { date: "24 May", occupancy: 75, adr: 139, revpar: 104, alos: 2.2 },
+  { date: "25 May", occupancy: 76, adr: 140, revpar: 106, alos: 2.3 },
+  { date: "26 May", occupancy: 74, adr: 138, revpar: 102, alos: 2.1 },
+  { date: "27 May", occupancy: 77, adr: 141, revpar: 109, alos: 2.4 },
+  { date: "28 May", occupancy: 75, adr: 140, revpar: 105, alos: 2.2 },
+  { date: "29 May", occupancy: 76, adr: 141, revpar: 107, alos: 2.3 },
+  { date: "30 May", occupancy: 77, adr: 142, revpar: 109, alos: 2.4 },
+  { date: "31 May", occupancy: 76, adr: 141, revpar: 107, alos: 2.3 },
+  { date: "01 Jun", occupancy: 77, adr: 142, revpar: 109, alos: 2.4 },
+  { date: "02 Jun", occupancy: 77, adr: 142, revpar: 110, alos: 2.4 },
+  { date: "03 Jun", occupancy: 78, adr: 142, revpar: 111, alos: 2.4 },
+]

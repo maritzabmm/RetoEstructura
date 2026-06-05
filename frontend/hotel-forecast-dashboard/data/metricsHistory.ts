@@ -1,0 +1,17 @@
+export const metricsHistory = [
+  { date: "20 May", wmape: 0.18, rmse: 6.1, r2: 0.81, mae: 3.2 },
+  { date: "21 May", wmape: 0.17, rmse: 5.8, r2: 0.82, mae: 3.0 },
+  { date: "22 May", wmape: 0.16, rmse: 5.5, r2: 0.83, mae: 2.9 },
+  { date: "23 May", wmape: 0.17, rmse: 5.7, r2: 0.82, mae: 3.1 },
+  { date: "24 May", wmape: 0.15, rmse: 5.2, r2: 0.84, mae: 2.8 },
+  { date: "25 May", wmape: 0.16, rmse: 5.4, r2: 0.84, mae: 2.7 },
+  { date: "26 May", wmape: 0.15, rmse: 5.0, r2: 0.85, mae: 2.6 },
+  { date: "27 May", wmape: 0.14, rmse: 4.8, r2: 0.86, mae: 2.5 },
+  { date: "28 May", wmape: 0.15, rmse: 4.9, r2: 0.86, mae: 2.6 },
+  { date: "29 May", wmape: 0.14, rmse: 4.7, r2: 0.87, mae: 2.4 },
+  { date: "30 May", wmape: 0.13, rmse: 4.5, r2: 0.87, mae: 2.3 },
+  { date: "31 May", wmape: 0.13, rmse: 4.4, r2: 0.88, mae: 2.2 },
+  { date: "01 Jun", wmape: 0.14, rmse: 4.6, r2: 0.88, mae: 2.3 },
+  { date: "02 Jun", wmape: 0.13, rmse: 4.4, r2: 0.88, mae: 2.2 },
+  { date: "03 Jun", wmape: 0.12, rmse: 4.3, r2: 0.89, mae: 2.1 },
+]
