@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "HOTEL_API_URL": "http://localhost:8000",
+    "HOTEL_API_KEY": "dev-key",
+    "WEBSITE_TIME_ZONE": "America/Monterrey"
+  }
+}
