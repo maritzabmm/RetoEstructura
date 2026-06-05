@@ -15,6 +15,7 @@ from app.models.schemas import (
 from app.services.forecast import get_forecast_service
 from app.services.cache import read_cached, write_cache
 
+
 settings = get_settings()
 app = FastAPI(title="Hotel Forecast API", version="1.0.0")
 
@@ -77,18 +78,14 @@ def get_day_forecast(
     date_param: Optional[str] = Query(default=None, alias="date"),
     target_date: Optional[str] = None,
 ):
-    """
-    Consulta on-demand desde Next.js.
-    Primero intenta leer del caché (Blob); si no existe, predice y guarda.
-    """
     d = _resolve_date(date_param, target_date)
 
-    # 1. Intentar caché
     cached = read_cached(d)
     if cached:
-        return DayForecastResponse(**cached, source="cache")
+        cached_payload = dict(cached)
+        cached_payload["source"] = "cache"
+        return DayForecastResponse(**cached_payload)
 
-    # 2. Predecir on-demand
     svc = get_forecast_service()
     preds = svc.predict_day(d)
     summary = _build_summary(preds)

@@ -31,3 +31,10 @@ mlruns/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Modelos
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth

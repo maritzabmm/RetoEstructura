@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     CUTOFF_HOUR: int = 20
     HORIZON_HOURS: int = 24
     API_KEY: str = "dev-key"
+    AZURE_SUBSCRIPTION_ID: str = ""
+    AZURE_RESOURCE_GROUP: str = ""
+    AZURE_WORKSPACE_NAME: str = ""
 
     class Config:
         env_file = ".env"

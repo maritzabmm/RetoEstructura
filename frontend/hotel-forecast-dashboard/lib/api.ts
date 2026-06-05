@@ -13,7 +13,7 @@ export type HourRow = {
 export type DayForecastResponse = {
   date: string
   generated_at: string
-  source: "cache" | "on_demand" | "batch_8pm" | string
+  source: string
   predictions: HourRow[]
   summary: {
     total_demand: number
@@ -26,20 +26,21 @@ export type DayForecastResponse = {
   }
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000"
+const API_URL = "http://127.0.0.1:8000"
 
-export async function getDayForecast(date: string): Promise<DayForecastResponse> {
-  const url = new URL("/predict/day", API_BASE_URL)
-  url.searchParams.set("date", date)
+export async function getDayForecast(date?: string): Promise<DayForecastResponse> {
+  const url = date
+    ? `${API_URL}/predict/day?target_date=${date}`
+    : `${API_URL}/predict/day`
 
-  const response = await fetch(url.toString(), {
+  const res = await fetch(url, {
+    method: "GET",
     cache: "no-store",
   })
 
-  if (!response.ok) {
-    const message = await response.text()
-    throw new Error(message || `Forecast request failed with ${response.status}`)
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status}`)
   }
 
-  return response.json()
+  return res.json()
 }
