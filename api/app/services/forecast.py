@@ -176,7 +176,8 @@ class ForecastService:
             raise ValueError(f"SARIMAX devolvió {len(sarimax_preds)} predicciones, se esperaban 24")
 
         log_residual_preds = self._reg_model.predict(X)
-        residual_preds = np.expm1(log_residual_preds)
+        residual_preds = log_residual_preds
+
 
         demand_preds = np.clip(sarimax_preds + residual_preds, 0, None)
 
@@ -190,13 +191,13 @@ class ForecastService:
 
             arrivals = int(row.get("expected_arrivals", round(demand * 0.4)))
             departures = int(row.get("expected_departures", round(demand * 0.3)))
-
+            arrivals = int(round(arrivals/24, 0))
             results.append(HourPrediction(
                 hour=hour,
-                demand=round(float(demand), 1),
+                demand=round(float(demand), 0),
                 staff=_staff_from_demand(float(demand)),
-                arrivals=max(0, arrivals),
-                departures=max(0, departures),
+                arrivals=int(round(float(demand * 0.4), 0)),
+                departures=int(round(float(demand * 0.3), 0)),
                 prob_pico=round(float(prob), 3),
                 es_pico=es_pico,
                 nivel_demanda=_nivel(float(demand)),
