@@ -50,20 +50,7 @@ def _sarimax_index(fecha_hora) -> int:
 
 
 def _staff_from_demand(demand: float) -> int:
-    if demand >= 60:
-        return 7
-    if demand >= 45:
-        return 6
-    if demand >= 35:
-        return 5
-    if demand >= 25:
-        return 4
-    if demand >= 15:
-        return 3
-    if demand >= 8:
-        return 2
-    return 1
-
+    return min(8, max(1, int(np.ceil(demand / 20))))
 
 def _nivel(demand: float) -> str:
     if demand >= 60:

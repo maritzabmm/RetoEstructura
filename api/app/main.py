@@ -13,6 +13,7 @@ from app.models.schemas import (
     HourForecastRequest, HealthResponse,
 )
 from app.services.forecast import get_forecast_service
+from app.services.metrics import get_model_metrics
 from app.services.cache import read_cached, write_cache
 
 
@@ -72,6 +73,12 @@ def health():
         cutoff_hour=settings.CUTOFF_HOUR,
     )
 
+@app.get("/metrics/model")
+def model_metrics(
+    end_date: str = "2025-12-20",
+    window_days: int = 15,
+):
+    return get_model_metrics(end_date=end_date, window_days=window_days)
 
 @app.get("/predict/day", response_model=DayForecastResponse)
 def get_day_forecast(

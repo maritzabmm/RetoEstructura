@@ -26,6 +26,27 @@ export type DayForecastResponse = {
   }
 }
 
+export type ModelMetricDay = {
+  date: string
+  wmape: number
+  rmse: number
+  mae: number
+  r2: number
+}
+
+export type ModelMetricsResponse = {
+  window_days: number
+  start_date: string
+  end_date: string
+  summary: {
+    wmape: number
+    rmse: number
+    mae: number
+    r2: number
+  }
+  daily: ModelMetricDay[]
+}
+
 const API_URL = "http://127.0.0.1:8000"
 
 export async function getDayForecast(date?: string): Promise<DayForecastResponse> {
@@ -40,6 +61,24 @@ export async function getDayForecast(date?: string): Promise<DayForecastResponse
 
   if (!res.ok) {
     throw new Error(`API error: ${res.status}`)
+  }
+
+  return res.json()
+}
+
+export async function getModelMetrics(
+  endDate = "2025-12-20",
+  windowDays = 15,
+): Promise<ModelMetricsResponse> {
+  const url = `${API_URL}/metrics/model?end_date=${endDate}&window_days=${windowDays}`
+
+  const res = await fetch(url, {
+    method: "GET",
+    cache: "no-store",
+  })
+
+  if (!res.ok) {
+    throw new Error(`Metrics API error: ${res.status}`)
   }
 
   return res.json()
