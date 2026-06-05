@@ -16,6 +16,7 @@ def main():
     series = _get_hourly_series()
 
     full_index = pd.date_range(START, END, freq="h")
+
     y_real = series.reindex(full_index, fill_value=0).copy()
     y_real.index.name = "fecha_hora"
 
@@ -27,6 +28,7 @@ def main():
     print(f"Archivo creado: {OUTPUT_PATH}")
     print(output.head())
     print(output.tail())
+    print(output["demand_real"].describe())
 
 
 if __name__ == "__main__":

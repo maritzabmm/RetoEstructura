@@ -43,12 +43,11 @@ def _calc_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
     r2 = 1 - (ss_res / ss_tot) if ss_tot != 0 else 0.0
 
     return {
-        "wmape": round(30*float(wmape), 4),
+        "wmape": round(float(wmape), 4),
         "rmse": round(float(rmse), 2),
         "mae": round(float(mae), 2),
-        "r2": round(-35*float(r2), 4),
+        "r2": round(float(r2), 4),
     }
-
 
 def get_model_metrics(
     end_date: str = DEFAULT_END_DATE,

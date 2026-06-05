@@ -8,7 +8,7 @@ import HourlyCarousel from "@/components/HourlyCarousel"
 import OperationsChart from "@/components/OperationsChart"
 import { getDayForecast, type DayForecastResponse } from "@/lib/api"
 
-const CUTOFF_HOUR = 20 // 8pm
+const CUTOFF_HOUR = 12 // 3pm
 const DEMO_BASE_DATE = new Date("2025-12-20T12:00:00")
 
 type TabKey = "overview" | "charts"
